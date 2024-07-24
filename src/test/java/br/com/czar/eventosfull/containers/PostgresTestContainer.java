@@ -10,10 +10,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PostgresTestContainer implements BeforeAllCallback {
 
-    private static AtomicBoolean containerStarted = new AtomicBoolean(false);
+    private final static AtomicBoolean containerStarted = new AtomicBoolean(false);
 
     @Container
-    private static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
+    private final static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
             .withDatabaseName("test")
             .withUsername("postgres")
             .withPassword("postgres");
