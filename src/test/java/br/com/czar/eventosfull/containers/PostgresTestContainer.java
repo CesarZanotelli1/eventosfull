@@ -3,15 +3,17 @@ package br.com.czar.eventosfull.containers;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.utility.DockerImageName;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PostgresTestContainer implements BeforeAllCallback {
 
-    private static AtomicBoolean containerStarted = new AtomicBoolean(false);
+    private final static AtomicBoolean containerStarted = new AtomicBoolean(false);
 
-    private static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
+    @Container
+    private final static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
             .withDatabaseName("test")
             .withUsername("postgres")
             .withPassword("postgres");
