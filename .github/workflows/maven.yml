@@ -50,11 +50,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Merge to Staging
+      - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout staging || git checkout -b staging
+
+      - name: Merge to Staging
+        run: |
+          git fetch origin
+          git checkout staging
           git merge main --no-ff --strategy-option theirs --allow-unrelated-histories
           git push origin staging
         env:
@@ -74,11 +78,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Merge to Production
+      - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout production || git checkout -b production
+
+
+      - name: Merge to Production
+        run: |
+          git fetch origin
+          git checkout production
           git merge origin/staging --no-ff --strategy-option theirs --allow-unrelated-histories
           git push origin production
         env:
