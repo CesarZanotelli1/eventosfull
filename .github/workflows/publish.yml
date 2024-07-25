@@ -69,7 +69,7 @@ jobs:
     name: Deploy to Prod
     environment:
       name: production
-      url: http://177.44.248.36:8092/
+      url: http://177.44.248.40:8081/
     needs: [staging]
 
     runs-on: ubuntu-latest
