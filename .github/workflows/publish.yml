@@ -42,7 +42,7 @@ jobs:
     name: Deploy to Staging
     environment:
       name: staging
-      url: http://177.44.248.40:8080/
+      url: http://177.44.248.40:8090/
     needs: setup
     runs-on: ubuntu-latest
 
@@ -69,7 +69,7 @@ jobs:
     name: Deploy to Prod
     environment:
       name: production
-      url: http://177.44.248.40:8081/
+      url: http://177.44.248.40:8091/
     needs: [staging]
 
     runs-on: ubuntu-latest
