@@ -108,6 +108,8 @@
                 <configuration>
                     <excludes>
                         <exclude>
+                            <source>21</source>
+                            <target>21</target>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
