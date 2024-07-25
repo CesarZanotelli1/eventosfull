@@ -42,7 +42,7 @@ jobs:
     name: Deploy to Staging
     environment:
       name: staging
-      url: http://177.44.248.36:8091/
+      url: http://177.44.248.40:8080/
     needs: setup
     runs-on: ubuntu-latest
 
