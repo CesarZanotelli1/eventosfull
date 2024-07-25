@@ -27,16 +27,16 @@ public class EventosController {
     public EventosDTO addEvento(@RequestBody EventosDTO eventosDTO) {
         LogsDTO logsDTO = new LogsDTO();
         logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
-        logsFacade.criar(logsDTO);
+        //logsFacade.criar(logsDTO);
         return eventosFacade.criar(eventosDTO);
     }
 
     @PutMapping("/{eventoId}")
     @ResponseBody
     public EventosDTO updateEvento(@PathVariable("eventoId") int eventoId, @RequestBody EventosDTO eventosDTO) {
-        LogsDTO logsDTO = new LogsDTO();
-        logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
-        logsFacade.criar(logsDTO);
+       // LogsDTO logsDTO = new LogsDTO();
+        //logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
+        //logsFacade.criar(logsDTO);
 
         return eventosFacade.atualizar(eventosDTO, eventoId);
     }
@@ -45,9 +45,9 @@ public class EventosController {
     @GetMapping
     @ResponseBody
     public List<EventosDTO> getAllEventos() {
-        LogsDTO logsDTO = new LogsDTO();
-        logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
-        logsFacade.criar(logsDTO);
+       // LogsDTO logsDTO = new LogsDTO();
+        //logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
+        //logsFacade.criar(logsDTO);
 
         return eventosFacade.buscarTodos();
     }
@@ -55,9 +55,9 @@ public class EventosController {
     @GetMapping("/{eventoId}")
     @ResponseBody
     public EventosDTO getEventoById(@PathVariable("eventoId") int eventoId) {
-        LogsDTO logsDTO = new LogsDTO();
-        logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
-        logsFacade.criar(logsDTO);
+      //  LogsDTO logsDTO = new LogsDTO();
+       // logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
+        //logsFacade.criar(logsDTO);
 
         return eventosFacade.buscarPorId(eventoId);
     }
@@ -65,9 +65,9 @@ public class EventosController {
     @DeleteMapping("/{eventoId}")
     @ResponseBody
     public String deleteEventoById(@PathVariable("eventoId") int eventoId) {
-        LogsDTO logsDTO = new LogsDTO();
-        logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
-        logsFacade.criar(logsDTO);
+       // LogsDTO logsDTO = new LogsDTO();
+       // logsDTO.setDescricao(request.getMethod()+" "+request.getRequestURI());
+        //logsFacade.criar(logsDTO);
         return eventosFacade.remover(eventoId);
     }
 
