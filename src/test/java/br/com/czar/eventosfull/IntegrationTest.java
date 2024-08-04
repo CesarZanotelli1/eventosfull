@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -26,5 +27,6 @@ import java.lang.annotation.Target;
 @AutoConfigureMockMvc
 @ImportAutoConfiguration
 @ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.properties")
 public @interface IntegrationTest {
 }
